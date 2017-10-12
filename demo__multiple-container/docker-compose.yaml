@@ -1,0 +1,37 @@
+version: "2"
+
+services:
+
+# ============= MongoDB
+  mongodb:
+    container_name: mongodb__ctnr
+    image: demo-mongodb
+    ports:
+      - 27017:27017
+    networks:
+      - my-network
+
+# ============= MONGODB-UI :
+  mongodb-ui:
+    container_name: mongodb-ui__cntr
+    image: demo-mongodb-ui
+    ports:
+      - 1234:1234
+    networks:
+      - my-network
+
+# ============= NODE-API :
+  node-api:
+    container_name: node-api__ctnr
+    image: demo-node-api
+    ports:
+      - 4040:4040
+    volumes:
+      - "./service__node-api:/var/www"
+    networks:
+      - my-network
+
+# ////////// NETWORK //////////
+networks:
+  my-network:
+    driver: bridge

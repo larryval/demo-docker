@@ -6,9 +6,9 @@
 Démo simple de la baleine bleue :)  
 
 
-#### Pour installer docker sur Windobe  
+#### Pour installer docker sur Win  
 
- - Si tu as WindobePro & un CPU qui supporte la virtualisation( normalement oui ), une applie toute cuite est là au téléchargement.  
+ - Si tu as WinPro & un CPU qui supporte la virtualisation( normalement oui ), une applie toute cuite est là au téléchargement.  
  [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)  
  
  - Sinon, il faut installer [docker-tool-box](https://docs.docker.com/toolbox/toolbox_install_windows/#step-2-install-docker-toolbox), sa va installer une virtual-box trés légère avec un linux OS par défaut qui va s'occuper de lancer Docker.
@@ -22,7 +22,15 @@ Démo simple de la baleine bleue :)
 #### docker hub - pour choper une image:  
 https://hub.docker.com/
 
-## 1) demo simple
+#### La blague à éviter  
+
+Sous Win, en utilisant docker-tool-box, les projets docker doivent se situer qq part chez toi !  
+
+```
+C:\Users\{mon_user_name}\mon_super_projet_docker  
+```
+
+## 1) demo simple - 1 container
 
 #### Builder l'image (rdv ici /demo__simple-container)
 
@@ -32,12 +40,14 @@ https://hub.docker.com/
 docker build -t demo-simple .
 ```  
 
+
+
+
 #### Lancer un container de cette image  
 
 - -it : ou "**interactive terminal**" va se connecter comme en ssh au container qui va se lancer.  
   
-- --rm : ou "**remove**" supprime le container qui il s'arretera  
-  
+- --rm : ou "**remove**" supprime le container quand il s'arretera  
 
 - -v : partage le contenu de ton repertoire actuel (pwd) au repertoire /var/www de ton container
 
@@ -45,9 +55,33 @@ docker build -t demo-simple .
 
 - --name : nomme le container qui va tourner : demo-simple__ctnr  
 
-le dernier paramètre étant le nom de l'image que l'on vien juste de créer : **demo-simple**
+le dernier paramètre étant le nom de l'image que l'on vient juste de créer : **demo-simple**
 
 ```
 docker run -it --rm -v $(pwd):/var/www -p 3030:3030 --name demo-simple__ctnr demo-simple
 ```
 
+rdv au (docker-tool-box):  
+**192.168.99.100:3030**
+
+
+## 2) demo multiple - n container
+
+Il faut d'abord builder les images de nos services (3 dans notre cas), mais c'est pas comme les antibiotiques, c'est pas automatique. Voir la doc de [docker-compose, tag:**build**](https://docs.docker.com/compose/compose-file/#build)
+
+Construire un fichier docker-compose.yaml, pour définir les containers qui vont tourner ensemble sur le même réseaux, puis
+
+```
+docker-compose up
+```
+
+et zou   
+ 
+- mongodb sur le port 27017
+- mongodb-ui sur le port 1234
+- node-api sur le port 4040
+
+## ressources
+
+Un exemple d'API avec Hapi.js + swagger + mongodb  
+https://github.com/dwyl/hapi-typescript-example
