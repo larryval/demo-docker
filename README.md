@@ -34,16 +34,18 @@ C:\Users\{mon_user_name}\mon_super_projet_docker
 
 #### Builder l'image (rdv ici /demo__simple-container)
 
-- -t : nomme l'image "demo-simple"  
-
 ```
 docker build -t demo-simple .
-```  
+```
 
-
+- -t : nomme l'image "demo-simple"  
 
 
 #### Lancer un container de cette image  
+
+```
+docker run -it --rm -v $(pwd):/var/www -p 3030:3030 --name demo-simple__ctnr demo-simple
+```  
 
 - -it : ou "**interactive terminal**" va se connecter comme en ssh au container qui va se lancer.  
   
@@ -57,15 +59,11 @@ docker build -t demo-simple .
 
 le dernier paramètre étant le nom de l'image que l'on vient juste de créer : **demo-simple**
 
-```
-docker run -it --rm -v $(pwd):/var/www -p 3030:3030 --name demo-simple__ctnr demo-simple
-```
-
-rdv au (docker-tool-box):  
+**rdv au** (docker-tool-box):  
 **192.168.99.100:3030**
 
 
-## 2) demo multiple - n container
+## 2) demo - n container
 
 Il faut d'abord builder les images de nos services (3 dans notre cas), mais c'est pas comme les antibiotiques, c'est pas automatique. Voir la doc de [docker-compose, tag:**build**](https://docs.docker.com/compose/compose-file/#build)
 
