@@ -22,3 +22,4 @@ RUN npm install -g nodemon
 RUN npm install && cd public && npm install
 
 CMD ["nodemon","-L","./server.js"]
+#CMD ["ls"]
