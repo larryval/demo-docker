@@ -5,30 +5,22 @@
 
 Démo simple de la baleine bleue :)  
 
-
-#### Pour installer docker sur Win  
-
- - Si tu as WinPro & un CPU qui supporte la virtualisation( normalement oui ), une applie toute cuite est là au téléchargement.  
- [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)  
- 
- - Sinon, il faut installer [docker-tool-box](https://docs.docker.com/toolbox/toolbox_install_windows/#step-2-install-docker-toolbox), sa va installer une virtual-box trés légère avec un linux OS par défaut qui va s'occuper de lancer Docker.
-   
-
-#### Pour installer docker sur Mac
-
-- https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac
-   
-
-#### docker hub - pour choper une image:  
+#### Docker hub - pour choper une image:  
 https://hub.docker.com/
 
-#### La blague à éviter  
+#### Ressources
 
-Sous Win, en utilisant docker-tool-box, les projets docker doivent se situer qq part chez toi !  
+- video VM vs Docker container
+https://www.youtube.com/watch?v=TvnZTi_gaNc
 
-```
-C:\Users\{mon_user_name}\mon_super_projet_docker  
-```
+
+#### Hype 
+
+- utilise peu de ressources
+- se lance trés rapidement
+- apps isolées
+- no more env probs & setup
+- pouvoir choisir la techno la plus adapté 
 
 ## 1) demo simple - 1 container
 
