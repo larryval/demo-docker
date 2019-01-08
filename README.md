@@ -20,7 +20,7 @@ https://www.youtube.com/watch?v=TvnZTi_gaNc
 - se lance trés rapidement
 - apps isolées
 - no more env probs & setup
-- pouvoir choisir la techno la plus adapté 
+- pouvoir choisir la techno la plus adaptée 
 
 ## 1) demo simple - 1 container
 
