@@ -8,17 +8,18 @@ services:
     image: demo-mongodb
     ports:
       - 27017:27017
-    networks:
-      - my-network
 
 # ============= MONGODB-UI :
   mongodb-ui:
     container_name: mongodb-ui__cntr
     image: demo-mongodb-ui
+    environment:
+      - HOST=0.0.0.0
+      - DB_HOST=mongodb
+      - DB_PORT=27017
+      - DB_NAME=demo
     ports:
-      - 2020:1234
-    networks:
-      - my-network
+      - 1234:1234
 
 # ============= NODE-API :
   node-api:
@@ -26,12 +27,4 @@ services:
     image: demo-node-api
     ports:
       - 4040:4040
-#    volumes:
-#      - "./service__node-api:/var/www"
-    networks:
-      - my-network
 
-# ////////// NETWORK //////////
-networks:
-  my-network:
-    driver: bridge
