@@ -6,15 +6,14 @@
 # lance le container
 # docker run -it --rm -v $(pwd):/var/www -p 4040:4040 --name demo-node-api__ctnr demo-node-api
 
-FROM node:8.4-slim
+FROM node:8.9
 
-MAINTAINER Larry
+MAINTAINER laurent.v
 
 COPY . /var/www
 WORKDIR /var/www
 
-RUN npm install -g nodemon
-RUN npm install
+RUN npm install -g nodemon && npm install
 
 CMD ["nodemon","-L","./src/server-api.js"]
 

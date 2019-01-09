@@ -3,7 +3,6 @@ const Joi = require("joi");
 
 module.exports = class ApiCtrl {
 
-
     //---------------------------
     //      item get by id
     itemGet(request, reply) {

@@ -7,6 +7,6 @@
 
 FROM mongo:3.4
 
-MAINTAINER larry
+MAINTAINER laurent.v
 
 CMD ["mongod"]

@@ -1,18 +1,19 @@
 #=======================
-# pour builder l'image (ce placer dans le repertoire du dockerfle):
+# pour builder l'image (ce placer dans le repertoire du Dockerfle):
 # docker build -t demo-mongodb-ui .
 
 # lance le container
-# docker run -it --rm -p 1234:1234 --name demo-mongodb-ui__ctnr demo-mongodb-ui
+# docker run -it --rm -p 1234:1234 --name demo-mongodb-ui__ctnr demo-mongodb-ui bash
 
-FROM node:8.4-slim
+FROM node:8.9
 
-MAINTAINER larry
+MAINTAINER laurent.v
 
-RUN apt-get update
-RUN apt-get install git netcat-traditional -y
-RUN git clone https://github.com/mrvautin/adminMongo.git && cd adminMongo && npm install
+RUN apt-get update && \
+    apt-get install git netcat-traditional -y && \
+    git clone https://github.com/mrvautin/adminMongo.git && \
+    cd adminMongo && npm install
 
-EXPOSE 1234
+WORKDIR adminMongo
 
-CMD ["node","adminMongo/app"]
+CMD ["node","app"]
