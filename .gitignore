@@ -1,4 +1,4 @@
 .idea
 demo__simple-node-container/node_modules
-demo__simple-node-container/public/node_modules
+demo__simple-node-container/src/public/node_modules
 demo__multiple-container/service__node-api/node_modules

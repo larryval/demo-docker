@@ -1,6 +1,6 @@
 #=======================
 # official repo ici:
-# https://hub.docker.com/_/node/
+# https://hub.docker.com
 
 #=======================
 # pour builder l'image (ce placer dans le repertoire du dockerfle):
@@ -8,18 +8,26 @@
 
 #=======================
 # lance le container
-# docker run -it --rm -v $(pwd):/var/www -p 3030:3030 --name demo-simple__ctnr demo-simple
+# mode alone :)
+# docker run --rm -p 3030:3030 --name demo-simple__ctnr demo-simple
 
-FROM node:8.4-slim
+# mode connexion -it
+# docker run -it --rm -v $(pwd)/src:/var/app -p 3030:3030 --name demo-simple__ctnr demo-simple bash
 
-MAINTAINER Larry
+FROM node:8.9
 
-COPY . /var/www
-WORKDIR /var/www
+MAINTAINER laurent.v
 
-RUN npm install -g nodemon
+RUN mkdir -p /var/app
 
-RUN npm install && cd public && npm install
+COPY src /var/app
+
+WORKDIR /var/app
+
+COPY ./package.json /var/app
+
+RUN  npm install -g nodemon && \
+     npm install && cd public && \
+     npm install
 
 CMD ["nodemon","-L","./server.js"]
-#CMD ["ls"]
