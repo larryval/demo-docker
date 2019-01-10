@@ -37,17 +37,13 @@ docker run -it --rm -p 3030:3030 --name demo-simple__ctnr demo-simple bash
   
 - --rm : ou "**remove**" supprime le container quand il s'arretera  
 
-- -v : partage le contenu de ton repertoire actuel (pwd) au repertoire /var/[mon_rep] de ton container
+- -v : **volume** - partage le contenu de ton repertoire actuel (pwd) au repertoire /var/[mon_rep] de ton container
 
-- -p : route le port 3030 d'un service du container vers le port 3030 extérieur sur lequel on se branche
+- -p : route le **port** 3030 d'un service du container vers le port 3030 extérieur sur lequel on se branche
 
 - --name : nomme le container qui va tourner : demo-simple__ctnr  
 
 le dernier paramètre étant le nom de l'image que l'on vient juste de créer : **demo-simple**
-
-**rdv au** (docker-tool-box):  
-**192.168.99.100:3030**
-
 
 ## 2) demo - n container
 
