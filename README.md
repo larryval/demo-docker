@@ -27,10 +27,10 @@ docker build -t demo-simple .
 - -t : nomme l'image "demo-simple"  
 
 
-#### Lancer un container de cette image  
+#### Lancer un container de cette image et s'y connecter
 
 ```
-docker run -it --rm -v $(pwd):/var/www -p 3030:3030 --name demo-simple__ctnr demo-simple
+docker run -it --rm -p 3030:3030 --name demo-simple__ctnr demo-simple bash
 ```  
 
 - -it : ou "**interactive terminal**" va se connecter comme en ssh au container qui va se lancer.  
@@ -86,6 +86,12 @@ et zou
 
 - video VM vs Docker container
 https://www.youtube.com/watch?v=TvnZTi_gaNc
+
+- Docker adoption:  
+https://www.datadoghq.com/docker-adoption/
+
+- Alpine base image vs Debian ou autre OS classique:  
+https://blog.codeship.com/alpine-based-docker-images-make-difference-real-world-apps/  
 
 - Un exemple d'API avec Hapi.js + swagger + mongodb  
 https://github.com/dwyl/hapi-typescript-example

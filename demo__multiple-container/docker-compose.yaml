@@ -15,9 +15,6 @@ services:
     image: demo-mongodb-ui
     environment:
       - HOST=0.0.0.0
-      - DB_HOST=mongodb
-      - DB_PORT=27017
-      - DB_NAME=demo
     ports:
       - 1234:1234
 
