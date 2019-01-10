@@ -68,18 +68,18 @@ et zou
 ## Docker cmd utiles:  
 
 - Pour virer container zombie:  
-    docker rm $(docker ps -q -f 'status=exited')  
+    `docker rm $(docker ps -q -f 'status=exited')`  
     et  
-    docker rm $(docker ps -q -f 'status=created')  
+    `docker rm $(docker ps -q -f 'status=created')`  
 
 - Pour virer les images dangling :  
-    docker rmi $(docker images -q -f dangling=true)  
+    `docker rmi $(docker images -q -f dangling=true)`  
 
 - Pour virer les volumes inutiles:  
-    docker volume rm $(docker volume ls -qf dangling=true)
+    `docker volume rm $(docker volume ls -qf dangling=true)`  
     
 - Pour afficher les stats:  
-    docker stats $(docker ps --format '{{.Names}}')  
+    `docker stats $(docker ps --format '{{.Names}}')`    
 
 
 ## ressources
