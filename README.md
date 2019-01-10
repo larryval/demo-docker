@@ -30,7 +30,7 @@ docker build -t demo-simple .
 #### Lancer un container de cette image et s'y connecter
 
 ```
-docker run -it --rm -p 3030:3030 --name demo-simple__ctnr demo-simple bash
+docker run -it --rm -p 3030:3030 --name demo-docker__ctnr demo-docker__img bash
 ```  
 
 - -it : ou "**interactive terminal**" va se connecter comme en ssh au container qui va se lancer.  
@@ -43,7 +43,7 @@ docker run -it --rm -p 3030:3030 --name demo-simple__ctnr demo-simple bash
 
 - --name : nomme le container qui va tourner : demo-simple__ctnr  
 
-le dernier paramètre étant le nom de l'image que l'on vient juste de créer : **demo-simple**
+le dernier paramètre étant le nom de l'image que l'on vient juste de créer : **demo-docker__img**
 
 ## 2) demo - n container
 
